@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Kembalianku</string>
+    <string name="intro">" Menghitung jumlah kembalian dengan cepat dan akurat!"</string>
+    <string name="uang_tunai">Uang Tunai</string>
+    <string name="total_pembayaran">Total Pembayaran</string>
+</resources>
