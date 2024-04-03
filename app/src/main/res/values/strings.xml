@@ -3,4 +3,6 @@
     <string name="intro">Calculate change quickly and accurately!</string>
     <string name="uang_tunai">Cash</string>
     <string name="total_pembayaran">Total Payment</string>
+    <string name="sesuai_inputan">The input is appropriate</string>
+    <string name="hitung">Count</string>
 </resources>
