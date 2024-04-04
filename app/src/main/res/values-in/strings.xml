@@ -8,5 +8,11 @@
     <string name="hitung">Hitung</string>
     <string name="inputan_tidak">Inputan Tidak Sesuai</string>
     <string name="rumus">"Kembali: %1$.2f "</string>
+    <string name="tentang_aplikasi">Tentang Aplikasi</string>
+    <string name="copyright">"Kembalianku merupakan aplikasi berfungsi untuk menghitung kembalian dari proses jual beli atau sederhananya aplikasi kalkulaltor untuk menghitung kembalian. Aplikasi ini dibuat untuk memenuhi tugas assessment 1 Mobpro.  Copyright © 2024 Arrifa Luthfiatunnisa Utama. All right reserved.              "</string>
+    <string name="kembali">Kembali</string>
+    <string name="input_invalid">Input Harus Diisi!</string>
+    <string name="bagikan">Bagikan</string>
+    <string name="bagikan_template">Kembalian:%1$s</string>
 
 </resources>

@@ -7,4 +7,10 @@
     <string name="hitung">Count</string>
     <string name="inputan_tidak">The input is not appropiate</string>
     <string name="rumus">"Change: %1$.2f "</string>
+    <string name="tentang_aplikasi">About the App</string>
+    <string name="copyright">Kembalianku is an application that functions to calculate change from the buying and selling process or simply a calculator application to calculate change. This application was created to fulfil Mobpro\'s assessment 1 assignment. Copyright © 2024 Arrifa Luthfiatunnisa Utama. All rights reserved.</string>
+    <string name="kembali">Back</string>
+    <string name="input_invalid">Input Must Be Filled In!</string>
+    <string name="bagikan">Share</string>
+    <string name="bagikan_template">Change: %1$s</string>
 </resources>
