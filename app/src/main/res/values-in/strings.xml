@@ -6,4 +6,7 @@
     <string name="total_pembayaran">Total Pembayaran</string>
     <string name="sesuai_inputan">Inputan Telah Sesuai</string>
     <string name="hitung">Hitung</string>
+    <string name="inputan_tidak">Inputan Tidak Sesuai</string>
+    <string name="rumus">"Kembali: %1$.2f "</string>
+
 </resources>

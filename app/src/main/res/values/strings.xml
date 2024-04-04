@@ -5,4 +5,6 @@
     <string name="total_pembayaran">Total Payment</string>
     <string name="sesuai_inputan">The input is appropriate</string>
     <string name="hitung">Count</string>
+    <string name="inputan_tidak">The input is not appropiate</string>
+    <string name="rumus">"Change: %1$.2f "</string>
 </resources>

@@ -2,6 +2,7 @@ package org.d3if0105.kembalianku.ui.screen
 
 import android.content.res.Configuration
 import androidx.compose.foundation.border
+
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -16,8 +17,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
-import androidx.compose.material3.Checkbox
-import androidx.compose.material3.CheckboxDefaults
+
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -28,12 +28,16 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.input.ImeAction
@@ -70,10 +74,16 @@ fun MainScreen() {
 
 @Composable
 fun ScreenContent(modifier: Modifier) {
-    var JumlahUangTunai by remember { mutableStateOf("")}
-    var JumlahPembayaran by remember { mutableStateOf("")}
+    var JumlahUangTunai by rememberSaveable { mutableStateOf("")}
+    var JumlahPembayaran by rememberSaveable { mutableStateOf("")}
+    var Kembalian by rememberSaveable { mutableFloatStateOf(0f) }
+    var kategori by rememberSaveable { mutableIntStateOf(0) }
+
+
+
 
     val radioOptions = listOf(
+        stringResource(id = R.string.inputan_tidak),
         stringResource(id = R.string.sesuai_inputan)
 
     )
@@ -120,6 +130,14 @@ fun ScreenContent(modifier: Modifier) {
 
         )
         Row (
+            modifier = Modifier
+                .padding(5.dp)
+
+                .border(
+                    1.dp, Color.Transparent, RoundedCornerShape(30.dp),
+
+                    )
+
 
         ){
             radioOptions.forEach { text ->
@@ -136,25 +154,29 @@ fun ScreenContent(modifier: Modifier) {
                         .padding(16.dp)
                 )
             }
-            Box(
-                contentAlignment = Alignment.Center ){
-            Button(
-                onClick = {},
-                modifier = Modifier.padding(top = 45.dp),
-
-                contentPadding = PaddingValues(horizontal=32.dp,
-                    vertical=16.dp),
 
 
-            ) {
-                Text(text = stringResource(R.string.hitung))
-            }
-                
-            }
+
 
 
 
         }
+        Button(
+            onClick = {
+                      Kembalian = hitungKembalian(JumlahUangTunai.toFloat(), JumlahPembayaran.toFloat())
+
+
+            },
+            modifier = Modifier.padding(top = 10.dp),
+
+            contentPadding = PaddingValues(horizontal=32.dp,
+                vertical=16.dp),
+
+
+            ) {
+            Text(text = stringResource(R.string.hitung))
+        }
+
 
 
 
@@ -162,9 +184,14 @@ fun ScreenContent(modifier: Modifier) {
     }
 
 
-}
+
+
+    }
+
+
+
 @Composable
-fun checked(label: String, isSelected: Boolean, modifier: Modifier){
+fun checked (label: String, isSelected: Boolean, modifier: Modifier){
     Row(
         modifier = modifier,
         verticalAlignment = Alignment.CenterVertically
@@ -183,6 +210,7 @@ private  fun hitungKembalian(cash: Float, totalPembayaran:Float): Float {
     return cash - totalPembayaran
 
 }
+
 
 
 
