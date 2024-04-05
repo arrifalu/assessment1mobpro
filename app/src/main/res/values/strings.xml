@@ -12,5 +12,5 @@
     <string name="kembali">Back</string>
     <string name="input_invalid">Input Must Be Filled In!</string>
     <string name="bagikan">Share</string>
-    <string name="bagikan_template">Change: %1$s</string>
+    <string name="bagikan_template"> Kembalianku\n\nCash:%1$s\nTotal Payment:%2$s\nChange:%3$s</string>
 </resources>

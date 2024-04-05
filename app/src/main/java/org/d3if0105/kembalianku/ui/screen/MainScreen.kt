@@ -3,6 +3,7 @@ package org.d3if0105.kembalianku.ui.screen
 import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 
 import androidx.compose.foundation.layout.Arrangement
@@ -35,6 +36,8 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.mutableIntStateOf
 
 
 import androidx.compose.runtime.mutableStateOf
@@ -44,6 +47,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
@@ -105,7 +111,8 @@ fun ScreenContent(modifier: Modifier) {
 
     var JumlahPembayaran by rememberSaveable { mutableStateOf("")}
     var JumlahPembayaranError by remember { mutableStateOf(false)}
-    var Kembalian by remember { mutableStateOf(0f) }
+    var Kembalian by remember { mutableFloatStateOf(0f) }
+    val context = LocalContext.current
 
 
     val radioOptions = listOf(
@@ -185,6 +192,8 @@ fun ScreenContent(modifier: Modifier) {
                 JumlahPembayaranError = (JumlahPembayaran == "" || JumlahPembayaran =="A")
                 if (JumlahUangTunaiError || JumlahPembayaranError) return@Button
                 Kembalian= hitungKembalian(JumlahUangTunai.toFloat(), JumlahPembayaran.toFloat())
+
+
             },
 
 
@@ -195,11 +204,27 @@ fun ScreenContent(modifier: Modifier) {
 
 
         }
+
         Text(
             text = "Kembalian: ${Kembalian} ",
             style = MaterialTheme.typography.bodyLarge,
             modifier = Modifier.padding(top = 16.dp)
         )
+        Button(
+            onClick = {
+                val message = context.getString(
+                    R.string.bagikan_template,
+                    JumlahUangTunai, JumlahPembayaran, String.format("%.2f", Kembalian)
+                )
+                shareData(context, message)
+            },
+            modifier = Modifier.padding(top = 8.dp),
+            contentPadding = PaddingValues(horizontal = 32.dp, vertical = 16.dp)
+        ) {
+            Text(text = stringResource(R.string.bagikan))
+        }
+
+
     }
 }
 
@@ -215,6 +240,14 @@ fun checked (label: String, isSelected: Boolean, modifier: Modifier){
             style = MaterialTheme.typography.bodyLarge,
             modifier = Modifier.padding(start = 8.dp)
         )
+        Button(
+            onClick = { },
+            modifier = Modifier.padding(top = 8.dp),
+            contentPadding = PaddingValues(horizontal = 32.dp, vertical = 16.dp)
+        ) {
+            Text(text = stringResource(R.string.bagikan))
+
+        }
     }
 }
 

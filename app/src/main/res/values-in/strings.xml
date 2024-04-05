@@ -13,6 +13,6 @@
     <string name="kembali">Kembali</string>
     <string name="input_invalid">Input Harus Diisi!</string>
     <string name="bagikan">Bagikan</string>
-    <string name="bagikan_template">Kembalian:%1$s</string>
+    <string name="bagikan_template"> Kembalianku\n\nJumlah Uang Tunai:%1$s\nJumlah Uang Pembayaran:%2$s\nKembalian:%3$s</string>
 
 </resources>
