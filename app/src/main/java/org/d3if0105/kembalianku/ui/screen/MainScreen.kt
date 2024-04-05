@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -168,7 +169,7 @@ fun ScreenContent(modifier: Modifier) {
             modifier = Modifier
                 .padding(5.dp)
                 .border(
-                    1.dp, Color.Transparent, RoundedCornerShape(30.dp)
+                    1.dp, Color.Transparent, RoundedCornerShape(20.dp)
                 )
         ){
             radioOptions.forEach { text ->
@@ -218,7 +219,7 @@ fun ScreenContent(modifier: Modifier) {
                 )
                 shareData(context, message)
             },
-            modifier = Modifier.padding(top = 8.dp),
+            modifier = Modifier.padding(top = 5.dp),
             contentPadding = PaddingValues(horizontal = 32.dp, vertical = 16.dp)
         ) {
             Text(text = stringResource(R.string.bagikan))
